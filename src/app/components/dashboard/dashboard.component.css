@@ -1,0 +1,23 @@
+.title{
+    margin-top: 24vh;
+    width: 100%;
+    text-align: center;
+}
+
+.img{
+    width: 100%;
+    text-align: center; 
+}
+
+.flexBox{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.flexBox div{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
