@@ -36,4 +36,8 @@
     <mat-row *matRowDef="let element; columns: displayedColumns"></mat-row>
 
   </mat-table>
+
+  <div *ngIf="!dataSource.data.length" class="error">
+    No Employee Records found
+  </div>
 </div>

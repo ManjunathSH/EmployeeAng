@@ -10,3 +10,10 @@ mat-table{
     text-align: center;
     color: antiquewhite;
 }
+
+.error{
+    text-align: center;
+    color: beige;
+    font-size: 1.5em;
+    margin-top: 2vh;
+}
