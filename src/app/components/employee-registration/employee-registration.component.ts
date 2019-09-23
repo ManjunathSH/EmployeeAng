@@ -38,13 +38,15 @@ export class EmployeeRegistrationComponent implements OnInit {
           this.callMade = false;
           this.snackBar.open("Save Employee", "Success", {
             duration: 1000,
-
           });
           this.router.navigateByUrl('/dashboard');
         },
         error => {
           console.log(error);
           this.callMade = false;
+          this.snackBar.open("Save Employee", "Failed", {
+            duration: 1000,
+          });
         }
       )
     }
