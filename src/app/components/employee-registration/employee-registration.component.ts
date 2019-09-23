@@ -14,8 +14,10 @@ export class EmployeeRegistrationComponent implements OnInit {
 
   public employee: Employee = new Employee();
   callMade = false;
-  constructor(private postService: PostServiceService, private snackBar : MatSnackBar,
-    private router : Router) { }
+  errorMsg: string;
+
+  constructor(private postService: PostServiceService, private snackBar: MatSnackBar,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -23,27 +25,32 @@ export class EmployeeRegistrationComponent implements OnInit {
   }
 
   onSave() {
-    this.callMade = true;
+    
     console.log(this.employee);
 
     let saveEmployee = environment.save_get_employeeList_url;
 
-    this.postService.postData(saveEmployee, this.employee).subscribe(
-      response => {
-        console.log(response);
-        this.callMade = false;
-        this.snackBar.open("Save Employee", "Success", {
-          duration: 1000,
-          
-        });
-        this.router.navigateByUrl('/dashboard');
-      },
-      error => {
-        console.log(error);
-        this.callMade = false;
-      }
-    )
+    if (this.employee.employeeName && this.employee.employeeName != "") {
+      this.callMade = true;
+      this.postService.postData(saveEmployee, this.employee).subscribe(
+        response => {
+          console.log(response);
+          this.callMade = false;
+          this.snackBar.open("Save Employee", "Success", {
+            duration: 1000,
 
+          });
+          this.router.navigateByUrl('/dashboard');
+        },
+        error => {
+          console.log(error);
+          this.callMade = false;
+        }
+      )
+    }
+    else{
+      this.errorMsg = "Please enter valid fields";
+    }
   }
 
 }
