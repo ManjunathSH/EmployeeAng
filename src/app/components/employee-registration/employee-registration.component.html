@@ -27,8 +27,8 @@
       <input matInput placeholder="E-mail" type="email" [(ngModel)]="employee.email">
     </mat-form-field>
 
-    <div *ngIf="!employee.employeeName && errorMsg" class="error">
-      {{errorMsg}}
+    <div class="error">
+      <span *ngIf="!employee.employeeName && errorMsg">{{errorMsg}}</span>
     </div>
 
     <button style="margin-top: 2em" mat-button (click)="onSave()">Register</button>
