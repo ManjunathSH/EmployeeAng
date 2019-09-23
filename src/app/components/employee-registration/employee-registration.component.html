@@ -1,3 +1,33 @@
-<p>
-  employee-registration works!
-</p>
+<h2 class="titleClass">
+  Employee Registration
+</h2>
+
+<mat-card class="card">
+  <mat-card-title class="title">Registration</mat-card-title>
+  <div class="spinner" *ngIf="callMade">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  </div>
+  <mat-card-content class="cardContent">
+
+
+    <mat-form-field>
+      <input required matInput placeholder="Name" [(ngModel)]="employee.employeeName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Address" rows="3" [(ngModel)]="employee.address" style="resize: none">
+    </textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Phone" type="tel" [(ngModel)]="employee.phone">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="E-mail" type="email" [(ngModel)]="employee.email">
+    </mat-form-field>
+
+    <button style="margin-top: 2em" mat-button (click)="onSave()">Register</button>
+  </mat-card-content>
+
+</mat-card>

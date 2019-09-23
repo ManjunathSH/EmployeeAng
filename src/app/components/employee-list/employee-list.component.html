@@ -1,3 +1,39 @@
-<p>
-  employeelist works!
-</p>
+<h3 class="title">
+  List of Employees
+</h3>
+
+
+<div *ngIf="dataSource" class="table">
+
+  <mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> Emp Id. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.employeeId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.employeeName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef style="flex: 2"> Address </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex: 2"> {{element.address}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let element; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+</div>

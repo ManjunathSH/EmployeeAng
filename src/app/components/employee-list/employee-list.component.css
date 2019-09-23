@@ -1,0 +1,12 @@
+.table{
+    margin-top: 4vh;
+}
+
+mat-table{
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+.title{
+    text-align: center;
+    color: antiquewhite;
+}
