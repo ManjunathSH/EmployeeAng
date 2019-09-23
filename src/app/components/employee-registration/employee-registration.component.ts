@@ -3,6 +3,7 @@ import { Employee } from '../../model/Employee';
 import { PostServiceService } from '../../services/post/post-service.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-employee-registration',
@@ -25,8 +26,9 @@ export class EmployeeRegistrationComponent implements OnInit {
     this.callMade = true;
     console.log(this.employee);
 
+    let saveEmployee = environment.save_get_employeeList_url;
 
-    this.postService.postData("http://localhost:8080/api/employee", this.employee).subscribe(
+    this.postService.postData(saveEmployee, this.employee).subscribe(
       response => {
         console.log(response);
         this.callMade = false;

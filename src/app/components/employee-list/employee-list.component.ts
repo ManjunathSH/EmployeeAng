@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GetServiceService } from '../../services/get/get-service.service';
 import { Employee } from '../../model/Employee';
 import { MatTableDataSource } from '@angular/material';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-employee-list',
@@ -17,8 +18,8 @@ export class EmployeelistComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.dataSource);
-
-    this.getService.getData("http://localhost:8080/api/employee/").subscribe(
+    let getEmployee = environment.save_get_employeeList_url;
+    this.getService.getData(getEmployee).subscribe(
       response =>{
         this.dataSource =  new MatTableDataSource(response);
       }
